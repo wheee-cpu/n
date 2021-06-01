@@ -1,0 +1,107 @@
+<html>
+<head>
+
+</head>
+<script>
+var people = [];
+function submit(){
+people.push(document.getElementById("pace").value);
+document.getElementById("d").innerHTML = people;
+}
+function show(){
+
+var con = people.join("<br>");
+document.getElementById("joindiv").innerHTML = con;
+
+}
+
+function sorter(){
+
+    var cno = people.sort();
+    var ocn = cno.join("<br>");
+    document.getElementById("sortdiv").innerHTML = ocn;
+}
+
+function search(){
+var s = document.getElementById("s").value;
+var found = 0;
+var j;
+for(j=0; j<people.length; j++){
+
+    if(s == people[j]){
+          found = found + 1;
+    }
+}
+document.getElementById("boi").innerHTML="name found " + found + " time/s";
+console.log("name found " + found + " time/s");
+}
+
+</script>
+<style>
+body{
+
+    text-align: center;
+}
+
+#pace{
+
+    margin-right: 10px;
+}
+#space{
+
+margin-left: 10px;
+}
+div{
+
+    margin-top:30px;
+padding:10px;
+}
+#s{
+
+margin-right: 10px;
+}
+#spac{
+
+margin-left: 10px;
+}
+
+#skyblue{
+
+background-color: azure;
+}
+
+
+#y{
+
+background-color: deepskyblue;
+}
+#g{
+
+background-color: dodgerblue;
+}
+#final{
+
+background-color: mediumblue;
+}
+</style>
+<body>
+<div id = "skyblue">
+<h1>Guest List</h1>
+<br>
+<br>
+<span><input type = "text" id="pace"></span><button id="space" onclick = "submit()">Submit</button>
+</div>
+<div id = "d" ></div>
+<div id = "y">
+    <h1>Guest List</h1>
+  <br>  <button onclick = "show()">Show</button><div id = "joindiv"></div></div>
+<div id = g>
+        <h1>Sorted List</h1>
+        <br>  <button onclick = "sorter()">Sort Guests</button><div id = "sortdiv"></div>
+</div>
+<div id = "final"><h2>Did you repeat a name?</h2>
+    <br>
+    <br>
+    <span><input type = "text" id="s"></span><button id="spac" onclick = "search()">Search</button><h3 id = "boi"></h3></div>
+</body>
+</html>
